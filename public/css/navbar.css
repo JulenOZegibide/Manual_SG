@@ -1,0 +1,97 @@
+.mostrar{
+    width: 20% !important;
+    position: fixed;
+    transition-duration: 1s;
+}
+.ocultar{
+    width: 0;
+    position: fixed;
+    transition-duration: 1s;
+}
+#lupa {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 27px;
+    margin-left: 1%;
+}
+#busqueda{
+    border-radius: 17px;
+    border: none;
+    height: 32px;
+    padding-left: 20px;
+    width: 101%;
+}
+#lupa path {
+    fill: gray;
+}
+#menubutton{
+    background-image: url("../img/menu.png");
+    background-size: contain;
+}
+#logo{
+    width: 30%;
+    float: left;
+}
+#buscador{
+    width: 70%;
+    float: left;
+    margin-top: 15px;
+}
+#cabecera{
+    background-color: #1874ce;
+    height: 80px;
+}
+.drillmenu{ /* main DIV container of menu */
+    overflow-y: scroll; /*Scrollable DIV for those with JavaScript disabled*/
+    background: dodgerblue; /*background of menu.*/
+}
+
+
+.drillmenu ul{ /*menu ULs*/
+    font: normal 13px Verdana;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: dodgerblue; /*background of menu*/
+}
+
+.drillmenu li a{ /*menu links*/
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    word-break-wrap: 1;
+}
+
+* html .drillmenu li{ /*IE6 CSS hack*/
+    display: inline-block;
+}
+
+.drillmenu li a:hover{
+    background-color: #4A2500;
+    color: white;
+}
+
+li.backcontroltitle{ /*style of top level menu title*/
+    background: black;
+    color: white;
+    padding: 4px;
+}
+
+li.backcontrol{ /*style of back button control that gets added to the top of each sub UL*/
+    background: #011054;
+    color: white;
+    padding: 4px;
+    cursor: hand;
+    cursor: pointer;
+}
+
+#drillcrumb{ /*custom, user defined DIV that contains breadcrumb trail*/
+    margin-bottom: 5px;
+    font: bold 13px Verdana;
+}
+
+#drillcrumb a{ /*custom element*/
+    color: darkred;
+}
