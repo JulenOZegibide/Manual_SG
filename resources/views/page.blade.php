@@ -1,8 +1,3 @@
-<!--Hereda el layout que contiene los imports de css y js para hacerlo reutilizable -->
-@extends('layout')
-<!--Coje el codigo y lo introduce en el layout.blade donde pone 'yield('content')'-->
-@section('content')
-
 
 <h1>{{$pagina->titulo}}</h1>
 
@@ -11,7 +6,7 @@
     <!--Si existen bloques recorro el array de bloques que contiene la pagina-->
     @foreach($bloques as $bloque)
 
-        <h4>{{$bloque->titulo}}</h4>
+        <h3>{{$bloque->titulo}}</h3>
 
         <!--Recojo en la variable $columnas todas las columnas de un bloque el numero de columnas de un bloque en $numelementos-->
         @php
@@ -23,12 +18,19 @@
                 ->first();
 
                 /*Recojo si hay alguna columna a la cual se le haya asignado un ancho y calculoel ancho restante para el resto de columnas*/
-                $columnagrande = \App\Columna::select('*')->where('ancho','!=',null)->get();
+                $columnas_sin_ancho = \App\Columna::select('*')->where('ancho','=','null')->get();
+                $columnas_con_ancho = \App\Columna::select('*')->where('ancho','!=','null')->get();
                 $ancho_columna = 100;
-                foreach ($columnagrande as $bigcolumn){
-                    $ancho_columna = $ancho_columna - $bigcolumn->ancho;
+                foreach ($columnas_con_ancho as $columnagrande){
+
+                    $ancho_columna = $ancho_columna - $columnagrande->ancho;
                 }
+                if($ancho_columna != 0) {
+                }
+                else{
                 $ancho_columna = $ancho_columna/$numelementos->numcolumnas . '%';
+                }
+
 
 
 
@@ -38,15 +40,7 @@
             @foreach($columnas as $columna)
             @php
                 $elementos = $columna->elemento;
-                /*foreach($elementos as $elementosuelto){
-                    if($elementosuelto->ancho != null){
-                        $elementoancho = $elementosuelto;
-                    }
-                    else{
-                        $elementoancho = null;
 
-                    }
-                }*/
             @endphp
 {{--            <div id="column_container" style="width: @if($elementoancho != null)'100%'@elseif($columna->ancho==null){{$ancho_columna}}@else {{$columna->ancho . '%'}} @endif;float: left">--}}
                 <div id="column_container" style="width: @if($columna->ancho==null){{$ancho_columna}}@else {{$columna->ancho . '%'}} @endif;float: left">
@@ -76,4 +70,3 @@
     @endforeach
 @endif
 
-@endsection

@@ -1,3 +1,9 @@
+*{
+    font-family: 'Roboto Slab', serif;
+}
+body{
+    background-color: lightsteelblue;
+}
 #contenedor{
     max-width: 1200px;
     margin:0 auto;
@@ -11,25 +17,5 @@
     display: flex;
     padding: 3%;
     flex-direction: column;
-}
-.pie{
-    display: flex;
-    justify-content: space-around;
-    padding-top: 15px;
-    background-color: #191a29;
-}
-.descripcion{
-    padding-top: 15px;
-}
-footer {
-    width: 100%;
-    clear: left;
-}
-footer p{
-    color: white;
-}
-
-footer ul{
-    margin-bottom: 0;
 }
 

@@ -74,19 +74,19 @@ drilldownmenu.prototype.buildmenu=function($){
     this.$uls.each(function(i){ //loop through each UL
         var $thisul=$(this)
         if (i==0){ //if topmost UL
-            $('<li class="backcontroltitle" id="cabecera"><img src="../img/logosg.png" id="logo"><form id="buscador"><input type="text" id="busqueda" name="busqueda"><svg id="lupa"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"></path></svg></form></li>').prependTo($thisul).click(function(e){e.preventDefault()})
-            thisdrill.$maindiv.css({height:(thisdrill.menuheight=='auto')? $thisul.outerHeight() : parseInt(thisdrill.menuheight), overflow:'hidden'}) //set main menu DIV's height to top level UL's height
+            $('<li class="backcontroltitle" id="cabecera"><form id="buscador"><input type="text" id="busqueda" name="busqueda"><svg id="lupa"><path d="M18 16.5l-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0z"></path></svg></form></li>').prependTo($thisul).click(function(e){e.preventDefault()})
+            thisdrill.$maindiv.css({height:'1200px', overflow:'hidden'}) //set main menu DIV's height to top level UL's height
                 .data('h', parseInt(thisdrill.$maindiv.css('height')))
 
         }
         else{ //if this isn't the topmost UL
             var $parentul=$thisul.parents('ul:eq(0)')
             var $parentli=$thisul.parents('li:eq(0)')
-            $('<li class="backcontrol"><img src="'+thisdrill.backarrow+'" style="border-width:0" /> Retroceder</li>') //add back LI item
+            $('<li class="backcontrol"><img src="'+thisdrill.backarrow+'" style="border-right: 1px solid #1f5082;height: 100%;padding: 2%;" /> <p id="textoretroceder">Retroceder</p></li>') //add back LI item
                 .click(function(e){thisdrill.back(); e.preventDefault()})
                 .prependTo($thisul)
             var $anchorlink=$parentli.children('a:eq(0)').css({outline:'none'}).data('control', {order:i}) //remove outline from anchor links
-            var $arrowimg=$('<img class="arrowclass" />').attr('src', thisdrill.sublevelarrow.src).css({position:'absolute', borderWidth:0, paddingTop:thisdrill.sublevelarrow.top, left:$parentli.width()-parseInt(thisdrill.sublevelarrow.width)-parseInt(thisdrill.sublevelarrow.left)}).prependTo($anchorlink)
+            var $arrowimg=$('<img class="arrowclass" />').attr('src', thisdrill.sublevelarrow.src).css({position:'absolute', borderWidth:0, paddingTop:thisdrill.sublevelarrow.top, left:$parentli.width()-parseInt(thisdrill.sublevelarrow.width)-parseInt(thisdrill.sublevelarrow.left)}).prependTo($anchorlink);
             $anchorlink.click(function(e){ //assign click behavior to anchor link
                 thisdrill.slidemenu(jQuery(this).data('control').order)
                 e.preventDefault()

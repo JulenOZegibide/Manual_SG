@@ -30,6 +30,7 @@ class CircuitoController extends Controller
         }
 
 
+
         return view('index', [
             'index' => $index,
             'circuitos' => $circuitos

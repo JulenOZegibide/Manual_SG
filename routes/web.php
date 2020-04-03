@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'CircuitoController@index')->name('index');;
 
-Route::get('tema/{id}', 'PaginaController@show')->name('index.show');;
+Route::get('pagina/{id}', 'PaginaController@show')->name('pagina');;
 
-Route::get('buscar', 'PaginaController@index')->name('index.buscar');;
+Route::get('buscar', 'PaginaController@index')->name('buscar');;

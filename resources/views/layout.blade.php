@@ -4,6 +4,8 @@
     <title>Manual SG</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--Link para coger de internet el tipo de letra-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet"></head>
     <!--CSS de Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--JS de Bootstrap-->
@@ -15,32 +17,33 @@
     <link rel="stylesheet" type="text/css" href="{{secure_asset('css/navbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{secure_asset('css/index.css')}}">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
     <!--JS personalizado-->
     <script src="{{secure_asset('js/navbar.js')}}" ></script>
-</head>
+
 <body>
-    <!--Añade la barra de navegacion desde otro fichero-->
-    <input type="button" id="menubutton">
-    <div id="menulateral" class="mostrar">
-        @include('navbar')
+    <nav id="barranav" class="fixed-top">
+        <a id="menubutton"><img src="{{secure_asset('img/menu.png')}}" id="menuimg"></a>
+        <img src="{{secure_asset('img/logosg.png')}}" id="logo">
+        <div id="info">
+            <p>Pedro Asúa 31, bajo 01008</p>
+            <p>902 24 25 00 - 945 21 32 06</p>
+        </div>
+    </nav>
+
+    <div id="menulateral" class="ocultar">
+        <!--Añade la barra de navegacion desde otro fichero-->
+        @include('menulateral')
     </div>
-    <!--Coje el contenido que se quiere mostrar y lo inserta en esta caja-->
+
     <div id="contenedor">
+        <!--Coje el contenido que se quiere mostrar y lo inserta en esta caja-->
         @yield('content')
     </div>
 
-    <footer>
-        <ul class="menu pie" >
-            <div class="descripcion">
-                <p> SG Software de Contabilidad y de Gestión</p>
-            </div>
-            <div class="info">
-                <p>Pedro Asúa 31, bajo 01008, Vitoria-Gasteiz (Álava) </p>
-                <p>902 24 25 00 - 945 21 32 06</p>
-            </div>
-        </ul>
-    </footer>
+
     <!--JS personalizado-->
     <script src="{{secure_asset('js/index.js')}}" ></script>
 </body>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Bloque;
+use App\Circuito;
 use App\Pagina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Array_;
+
 
 class PaginaController extends Controller
 {
@@ -47,24 +49,22 @@ class PaginaController extends Controller
      * @param  \App\Pagina  $pagina
      * @return \Illuminate\Http\Response
      */
-    public function show(Pagina $pagina,$id)
+    public function show(Request $request,$id)
     {
         $pagina = Pagina::find($id);
 
-        $paginasWontaW = Pagina::select('*')->where('aplicacion', '=' , 1)->get();
-
-        $paginasWontaGes = Pagina::select('*')->where('aplicacion', '=' , 2)->get();
-
         $bloques = $pagina->bloque;
+
+        $circuitos = Circuito::all();
 
 
 
         return view('page', [
-            'pagina' => $pagina,
-            'paginasWontaW' => $paginasWontaW,
-            'paginasWontaGes' => $paginasWontaGes,
-            'bloques' => $bloques
+            "pagina" => $pagina,
+            "bloques" => $bloques,
+            'circuitos' => $circuitos
         ]);
+
     }
 
     /**
