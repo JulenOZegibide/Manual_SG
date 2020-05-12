@@ -21,6 +21,7 @@ function mostrarPagina(id){
         url: '/pagina/' + id ,
         type: "get",
         success: function (result) {
+            menuimg.style.transform='rotate(0deg)';
             menulateral.classList.remove("mostrar");
             menulateral.classList.add("ocultar");
             document.getElementById('contenedor').innerHTML = result;
@@ -29,6 +30,7 @@ function mostrarPagina(id){
             console.log(thrownError)
         }
     });
+
 }
 
 

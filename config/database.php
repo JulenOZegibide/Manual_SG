@@ -35,6 +35,14 @@ return [
 
     'connections' => [
 
+        'access' => [
+            'driver' => 'odbc',
+            'dsn' => 'DRIVER={Microsoft Access Driver (*.mdb, *.accdb)}; DBQ=C:\Users\F540U\Documents\code\Gestor_de_contenido_SG\Gestor de contenido SG\Base de datos\BD_ManualSG.accdb;',
+            'database' => 'BD_ManualSG.accdb',
+            'username' => '',
+            'password' => ''
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
