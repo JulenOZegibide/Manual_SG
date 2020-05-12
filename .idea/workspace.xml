@@ -4,6 +4,8 @@
     <list default="true" id="547b214d-56c4-4390-8129-0396417c285f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/conexionBD.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/conexionBD.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +209,7 @@
       <workItem from="1585420957445" duration="7647000" />
       <workItem from="1589199878892" duration="7063000" />
       <workItem from="1589209999512" duration="2553000" />
-      <workItem from="1589279657428" duration="3418000" />
+      <workItem from="1589279657428" duration="4350000" />
     </task>
     <servers />
   </component>

@@ -1,2 +1,2 @@
 <?php
-$pdo = DB::connection('access')->getPdo();
+//$pdo = DB::connection('access')->getPdo();
